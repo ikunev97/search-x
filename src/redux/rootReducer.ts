@@ -1,13 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import items from "./slices/ItemsSlice";
-import recentlyItems from "./slices/RecentlyItemsSlice";
+import recentlySearchedItems from "./slices/RecentlySearchedItemsSlice";
 import searchedItems from "./slices/SearchedItemsSlice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 
 const rootReducer = combineReducers({
   itemsReducer: items,
-  recentlyItemsReducer: recentlyItems,
+  recentlySearchedItemsReducer: recentlySearchedItems,
   searchedItemsReducer: searchedItems,
 });
 

@@ -7,6 +7,7 @@ export type ItemsState = {
   isLoading: boolean;
   hasError: string;
   timeToPerformSearch: number;
+  page?: string;
 };
 
 const initialState: ItemsState = {
@@ -15,6 +16,7 @@ const initialState: ItemsState = {
   isLoading: false,
   hasError: "",
   timeToPerformSearch: 0,
+  page: "",
 };
 
 const itemsSlice = createSlice({
@@ -29,6 +31,10 @@ const itemsSlice = createSlice({
       state.hasError = "";
       state.searchedItems = action.payload.results;
       state.searchedItemsInfo = action.payload.info;
+    },
+
+    setPage: (state, action: PayloadAction<string | undefined>) => {
+      state.page = action.payload;
     },
 
     setTimeToPerformSearch: (state, action: PayloadAction<number>) => {
@@ -47,6 +53,7 @@ export const {
   setSearchedItems,
   setSearchedItemsError,
   setTimeToPerformSearch,
+  setPage,
 } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

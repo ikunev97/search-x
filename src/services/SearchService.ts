@@ -3,6 +3,7 @@ import { ITEMS_URL } from "../constants";
 import { setError, setItems, setLoading } from "../redux/slices/ItemsSlice";
 import { AppThunk } from "../redux/store";
 import {
+  setPage,
   setSearchedItems,
   setSearchedItemsError,
   setSearchedItemsLoading,
@@ -52,12 +53,18 @@ export const getSearchedItems =
 export const getItemsByPage =
   (url: string): AppThunk =>
   async (dispatch) => {
+    const start = Date.now();
     dispatch(setSearchedItemsLoading(true));
     try {
       const response = await axios.get(url);
+
       if (response) {
+        let end;
+        end = Date.now();
+        dispatch(setTimeToPerformSearch(end - start));
         dispatch(setSearchedItemsLoading(false));
         dispatch(setSearchedItems(response.data));
+        dispatch(setPage(url && url.match(/page=(\d+)/i)?.[1]));
       }
     } catch (error: any) {
       if (error instanceof Error) {

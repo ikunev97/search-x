@@ -27,3 +27,8 @@ export const selectTimeToPerformSearch = createSelector(
   selectContent,
   (content) => content.searchedItemsReducer.timeToPerformSearch
 );
+
+export const selectPage = createSelector(
+  selectContent,
+  (content) => content.searchedItemsReducer.page
+);

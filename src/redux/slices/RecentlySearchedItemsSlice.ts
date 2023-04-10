@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IRecentlySearchedItem } from "../../types";
 
-export type RecentlyItemsState = {
+export type RecentlySearchedItemsState = {
   recentlySearchedItems: IRecentlySearchedItem[];
 };
 
-const initialState: RecentlyItemsState = {
+const initialState: RecentlySearchedItemsState = {
   recentlySearchedItems: [],
 };
 
-const recentlyItemsSlice = createSlice({
-  name: "recentlyItems",
+const recentlySearchedItemsSlice = createSlice({
+  name: "recentlySearchedItems",
   initialState,
   reducers: {
     addToRecentyleSearchedItems: (
@@ -38,6 +38,6 @@ const recentlyItemsSlice = createSlice({
 });
 
 export const { addToRecentyleSearchedItems, removeFromRecentyleSearchedItems } =
-  recentlyItemsSlice.actions;
+  recentlySearchedItemsSlice.actions;
 
-export default recentlyItemsSlice.reducer;
+export default recentlySearchedItemsSlice.reducer;

@@ -4,7 +4,7 @@ import {
   selectItems,
   selectHasError,
 } from "../../redux/selectors/ItemsSelector";
-import { selectRecentlySearchedItems } from "../../redux/selectors/RecentlyItemsSelector";
+import { selectRecentlySearchedItems } from "../../redux/selectors/RecentlySearchedItemsSelector";
 import { AppDispatch } from "../../redux/store";
 import { getItems } from "../../services/SearchService";
 import { Input, SearchInputHolder, SearchWrapper } from "./styles/SearchStyles";
@@ -14,7 +14,7 @@ import useDetectClickOutside from "../../hooks/useDetectClickOutside";
 import {
   addToRecentyleSearchedItems,
   removeFromRecentyleSearchedItems,
-} from "../../redux/slices/RecentlyItemsSlice";
+} from "../../redux/slices/RecentlySearchedItemsSlice";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
 import { clearItems } from "../../redux/slices/ItemsSlice";

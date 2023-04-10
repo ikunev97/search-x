@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   selectIsSearchedItemsLoading,
+  selectPage,
   selectSearchedItems,
   selectSearchedItemsHasError,
   selectSearchedItemsInfo,
@@ -31,6 +32,7 @@ export const Items = () => {
   const items = useSelector(selectSearchedItems);
   const itemsInfo = useSelector(selectSearchedItemsInfo);
   const timeToPerformSearch = useSelector(selectTimeToPerformSearch);
+  const page = useSelector(selectPage);
   const isLoading = useSelector(selectIsSearchedItemsLoading);
   const hasError = useSelector(selectSearchedItemsHasError);
 
@@ -49,6 +51,7 @@ export const Items = () => {
   return (
     <>
       <ItemsInfoWrapper>
+        {page && Number(page) > 1 && <span>Page {page} of</span>}{" "}
         {itemsInfo.count} results {`(${timeToPerformSearch / 100} seconds)`}
       </ItemsInfoWrapper>
       <Wrapper>

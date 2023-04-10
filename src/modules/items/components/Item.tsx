@@ -23,7 +23,7 @@ export const Item = () => {
   useEffect(() => {
     setLoading(true);
     getItem(Number(id))
-      .then((res: any): any => {
+      .then((res: IItemResult) => {
         setItem(res);
         setLoading(false);
       })
